@@ -1,4 +1,4 @@
-/* --- MATERIAL YOU AUTH THEME --- */
+/* the color palette of endless damnation */
 * {
     -bg-almond: #F5F0EE;
     -card-white: #FFFFFF;
@@ -13,15 +13,13 @@
     -fx-background-color: -bg-almond;
 }
 
-/* Central Login Card */
 .auth-card {
     -fx-background-color: -card-white;
-    -fx-background-radius: 32; /* Large signature Material You corners */
+    -fx-background-radius: 32;
     -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.1), 20, 0, 0, 10);
     -fx-padding: 40;
 }
 
-/* Pill-Shaped Inputs */
 .auth-input {
     -fx-background-color: -input-fill;
     -fx-background-radius: 50;
@@ -39,7 +37,6 @@
     -fx-border-radius: 50;
 }
 
-/* Primary Action Button */
 .btn-auth-primary {
     -fx-background-color: -brown-dark;
     -fx-text-fill: white;
@@ -53,7 +50,6 @@
     -fx-background-color: -brown-primary;
 }
 
-/* Secondary Switch Button */
 .btn-auth-secondary {
     -fx-background-color: transparent;
     -fx-text-fill: -brown-primary;

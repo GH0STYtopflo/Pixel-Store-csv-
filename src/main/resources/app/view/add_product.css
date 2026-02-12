@@ -1,4 +1,4 @@
-/* --- PIXEL PLUS GLOBAL THEME --- */
+/* the color palette of doom and misery */
 .root {
     -bg-almond: #F5F0EE;
     -surface-white: #FFFFFF;
@@ -8,14 +8,12 @@
     -accent-green: #2E7D32;
 }
 
-/* Floating Card Container */
 .floating-card {
     -fx-background-color: -surface-white;
     -fx-background-radius: 32;
     -fx-effect: dropshadow(gaussian, rgba(62,39,35,0.12), 20, 0, 0, 10);
 }
 
-/* Input Fields */
 .pixel-input {
     -fx-background-color: -bg-almond;
     -fx-background-radius: 12;
@@ -30,7 +28,6 @@
     -fx-border-width: 2;
 }
 
-/* Drag and Drop Zone */
 .upload-zone {
     -fx-background-color: -bg-almond;
     -fx-background-radius: 24;
@@ -40,7 +37,6 @@
     -fx-border-radius: 24;
 }
 
-/* Buttons */
 .btn-primary {
     -fx-background-color: -brown-primary;
     -fx-text-fill: -surface-white;

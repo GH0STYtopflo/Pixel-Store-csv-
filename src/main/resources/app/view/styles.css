@@ -1,13 +1,13 @@
 * {
     /*Color Palette*/
-    -primary-brown: #8D6E63;        /* Warm medium brown */
-    -dark-brown: #3E2723;           /* Text & Strong Accents */
-    -light-almond: #F5F0EE;         /* App Background */
-    -surface-white: #FFFFFF;        /* Cards */
-    -surface-variant: #E7DED9;      /* Sidebar/Header Backgrounds */
-    -accent-gold: #D7CCC8;          /* Secondary interaction color */
+    -primary-brown: #8D6E63;
+    -dark-brown: #3E2723;
+    -light-almond: #F5F0EE;
+    -surface-white: #FFFFFF;
+    -surface-variant: #E7DED9;
+    -accent-gold: #D7CCC8;
 
-    /*Text Colors*/
+
     -text-primary: #3E2723;
     -text-secondary: #795548;
 }
@@ -17,7 +17,6 @@
     -fx-background-color: -light-almond;
 }
 
-/* Header */
 .app-bar {
     -fx-background-color: -surface-variant;
     -fx-padding: 15 30;
@@ -29,7 +28,6 @@
     -fx-text-fill: -dark-brown;
 }
 
-/*Search Bar*/
 .search-bar {
     -fx-background-color: -surface-white;
     -fx-background-radius: 50;
@@ -37,7 +35,7 @@
 }
 
 .search-bar:hover {
-    -fx-background-color: #DBCBC7; /* Slightly darker on hover */
+    -fx-background-color: #DBCBC7;
 }
 
 .search-bar .text-field {
@@ -46,7 +44,6 @@
     -fx-background-color: transparent;
 }
 
-/*Sidebar */
 .sidebar {
     -fx-background-color: -surface-variant;
     -fx-padding: 20;
@@ -71,7 +68,6 @@
     -fx-background-color: -primary-brown;
 }
 
-/*Product Cards (Rounded like Pixel Widgets)*/
 .product-card {
     -fx-background-color: -surface-white;
     -fx-background-radius: 24;
@@ -102,11 +98,10 @@
     -fx-text-fill: -primary-brown;
 }
 
-/*Buttons*/
 .btn-primary {
     -fx-background-color: -dark-brown;
     -fx-text-fill: white;
-    -fx-background-radius: 50; /* Pill Shape */
+    -fx-background-radius: 50;
     -fx-padding: 8 20;
     -fx-font-weight: bold;
 }
@@ -116,7 +111,6 @@
     -fx-cursor: hand;
 }
 
-/*Icon Buttons*/
 .icon-button {
     -fx-background-color: transparent;
     -fx-cursor: hand;
@@ -126,7 +120,7 @@
     -fx-background-radius: 50;
 }
 
-/*Helper class for SVG coloring via CSS*/
+/*this mf is for styling SVGs*/
 .svg-icon {
     -fx-fill: -dark-brown;
 }

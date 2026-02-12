@@ -126,9 +126,11 @@ public class UserService {
             allRows = reader.readAll();
 
             for (String[] row : allRows){
-                if (row[0].equals(String.valueOf(userID))) row[4] = role;
-                System.out.println("updated user role");
-                break;
+                if (row[0].equals(String.valueOf(userID))) {
+                    row[4] = role;
+                    System.out.println("updated user role");
+                    break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

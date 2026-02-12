@@ -27,7 +27,7 @@ public class ProductService {
             e.printStackTrace();
         }
 
-        String descDir = "/mnt/data/Projects/Pixel-Store/src/main/resources/FileDescs/" + product.getId() + ".txt";
+        String descDir = "src/main/resources/FileDescs/" + product.getId() + ".txt";
         File txtFile = new File(descDir);
         try {
             txtFile.createNewFile();

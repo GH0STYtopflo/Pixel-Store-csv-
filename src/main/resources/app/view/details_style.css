@@ -1,4 +1,4 @@
-/* --- PIXEL PLUS DETAILS THEME --- */
+/* palette */
 .root {
     -bg-almond: #F5F0EE;
     -surface-white: #FFFFFF;
@@ -8,26 +8,23 @@
     -accent-green: #2E7D32;
 }
 
-/* The Main Modal Card */
 .details-card {
     -fx-background-color: -bg-almond;
     -fx-background-radius: 30;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 40, 0, 0, 20);
 }
 
-/* Image Section */
 .image-panel {
     -fx-background-color: -surface-white;
     -fx-background-radius: 30;
     -fx-effect: dropshadow(gaussian, rgba(62,39,35,0.05), 15, 0, 5, 0);
 }
 
-/* Typography */
 .brand-label {
     -fx-text-fill: -brown-muted;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-letter-spacing: 1.5; /* Spaced out uppercase look */
+    -fx-letter-spacing: 1.5;
 }
 
 .product-name {
@@ -42,7 +39,6 @@
     -fx-font-weight: bold;
 }
 
-/* Spec Tags (RAM, Storage) */
 .spec-tag {
     -fx-background-color: rgba(141, 110, 99, 0.1);
     -fx-background-radius: 8;
@@ -52,7 +48,6 @@
     -fx-font-size: 12px;
 }
 
-/* Description Area */
 .description-scroll {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -65,10 +60,9 @@
 .description-text {
     -fx-text-fill: #5D4037;
     -fx-font-size: 15px;
-    -fx-line-spacing: 6; /* Better readability */
+    -fx-line-spacing: 6;
 }
 
-/* Buttons */
 .btn-cart {
     -fx-background-color: -brown-primary;
     -fx-text-fill: white;

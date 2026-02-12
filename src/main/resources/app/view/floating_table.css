@@ -1,4 +1,3 @@
-/* --- PIXEL PLUS BRAND PALETTE --- */
 .root {
     -bg-almond: #F5F0EE;
     -surface-white: #FFFFFF;
@@ -8,7 +7,6 @@
     -accent-green: #2E7D32;
 }
 
-/* Floating Card Container */
 .floating-container {
     -fx-background-color: -surface-white;
     -fx-background-radius: 32;
@@ -18,11 +16,10 @@
     -fx-border-radius: 32;
 }
 
-/* Table View Styling */
 .floating-table {
     -fx-background-color: transparent;
     -fx-tree-table-color: transparent;
-    -fx-selection-bar: -brown-light; /* Soft tan selection */
+    -fx-selection-bar: -brown-light;
     -fx-selection-bar-non-focused: -bg-almond;
 }
 
@@ -54,14 +51,12 @@
     -fx-background-color: -bg-almond;
 }
 
-/* Scrollbar customization */
 .floating-table .scroll-bar:vertical .thumb,
 .floating-table .scroll-bar:horizontal .thumb {
     -fx-background-color: -brown-light;
     -fx-background-radius: 10;
 }
 
-/* Primary Button using Brown-Primary */
 .btn-admin-close {
     -fx-background-color: -brown-primary;
     -fx-text-fill: -surface-white;

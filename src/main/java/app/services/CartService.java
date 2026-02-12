@@ -33,17 +33,21 @@ public class CartService {
         catch (Exception e){e.printStackTrace();}
 
         boolean exists = false;
-        for (String[] row : allRows){
-            if (row[1].equals(String.valueOf(product.getId())) &&
-                    row[0].equals(String.valueOf(userID))){
-                row[4] = String.valueOf((Integer.parseInt(row[4]) + 1));
-                try (CSVWriter writer = new CSVWriter(new FileWriter(pathToCartsTable))){writer.writeAll(allRows);}
-                catch (Exception e){e.printStackTrace();}
 
-                exists = true;
-                break;
+            for (String[] row : allRows) {
+                if (row[1].equals(String.valueOf(product.getId())) &&
+                        row[0].equals(String.valueOf(userID))) {
+                    row[4] = String.valueOf((Integer.parseInt(row[4]) + 1));
+                    try (CSVWriter writer = new CSVWriter(new FileWriter(pathToCartsTable))) {
+                        writer.writeAll(allRows);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    exists = true;
+                    break;
+                }
             }
-        }
 
         if (!exists) {
             String[] newItem = {String.valueOf(userID) , String.valueOf(product.getId())
@@ -77,27 +81,9 @@ public class CartService {
 
     public void makePurchase(ObservableList<Carts> items){
         int userID = items.get(0).getCartID() , total = 1;
-        List<String[]> allRows = List.of();
-        try (CSVReader reader = new CSVReader(new FileReader(pathToProductsTable))){
-            allRows = reader.readAll();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
 
-        for (Carts item : items){
-            total *= item.getPrice() * item.getQuantity();
-            for (String[] row : allRows) {
-                if (item.getProductID() == Integer.parseInt(row[0])) row[5] =
-                        String.valueOf(Integer.parseInt(row[5]) - 1);
-                break;
-            }
-        }
-        try (CSVWriter writer = new CSVWriter(new FileWriter(pathToProductsTable))){
-            writer.writeAll(allRows);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        for (Carts item : items) total *= item.getPrice() * item.getQuantity();
+
         clearCart(userID);
         System.out.println("purchase made");
 
@@ -115,7 +101,7 @@ public class CartService {
             e.printStackTrace();
         }
 
-        for (String[] row : allRows) if (Integer.parseInt(row[0]) == userID) cartItems.add(row);
+        for (String[] row : allRows) if (row[0].equals(String.valueOf(userID))) cartItems.add(row);
         allRows.removeAll(cartItems);
         try (CSVWriter writer = new CSVWriter(new FileWriter(pathToCartsTable))) {
             writer.writeAll(allRows);

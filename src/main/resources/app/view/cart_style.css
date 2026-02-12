@@ -1,4 +1,4 @@
-/* --- PIXEL PLUS PREMIUM THEME --- */
+/* i hate this color palette */
 .root {
     -bg-almond: #F5F0EE;
     -surface-white: #FFFFFF;
@@ -9,20 +9,17 @@
     -error-red: #E57373;
 }
 
-/* Main Card */
 .floating-card {
     -fx-background-color: -surface-white;
     -fx-background-radius: 32;
     -fx-effect: dropshadow(gaussian, rgba(62,39,35,0.08), 30, 0, 0, 15);
 }
 
-/* --- THE PRETTY TABLE --- */
 .table-view {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
 
-/* Header: Ghost Style */
 .table-view .column-header-background {
     -fx-background-color: transparent;
     -fx-padding: 0 0 15 0;
@@ -31,7 +28,7 @@
 .table-view .column-header {
     -fx-background-color: transparent;
     -fx-border-color: -bg-almond;
-    -fx-border-width: 0 0 1 0; /* Only a bottom line */
+    -fx-border-width: 0 0 1 0;
     -fx-size: 40;
 }
 
@@ -41,7 +38,6 @@
     -fx-alignment: CENTER_LEFT;
 }
 
-/* Rows: Clean & Spacious */
 .table-row-cell {
     -fx-background-color: transparent;
     -fx-border-color: -bg-almond;
@@ -50,21 +46,19 @@
 }
 
 .table-row-cell:filled:hover {
-    -fx-background-color: #FAF8F7; /* Very subtle almond hover */
+    -fx-background-color: #FAF8F7;
 }
 
 .table-row-cell:selected {
     -fx-background-color: #F0EAE7;
 }
 
-/* Cells */
 .table-cell {
     -fx-border-color: transparent;
     -fx-text-fill: -brown-primary;
     -fx-font-size: 14px;
 }
 
-/* Action Button */
 .btn-remove {
     -fx-background-color: #FFEBEE;
     -fx-text-fill: -error-red;
@@ -78,7 +72,6 @@
     -fx-text-fill: white;
 }
 
-/* Summary Panel */
 .summary-panel {
     -fx-background-color: -bg-almond;
     -fx-background-radius: 28;

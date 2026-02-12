@@ -73,7 +73,7 @@ public class PhoneCardController {
 
     // The next 2 methods are for loading product's data.
     private void loadDescSnippet(){
-        try (BufferedReader reader = new BufferedReader(new FileReader("/mnt/data/Projects/Pixel Plus/src/main/resources/FileDescs/"
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/FileDescs/"
                 + product.getId() + ".txt"));) {
             descText.setText(reader.readLine().trim());
         } catch (IOException e) {

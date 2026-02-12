@@ -85,7 +85,7 @@ public class ProductDetailController {
 
     // Image loader helper (I think I might be overdoin this clean code shi idk)
     private void loadImg(){
-        String imgPath = "/mnt/data/Projects/Pixel Plus/src/main/resources/Images/Thumbnail/" + product.getId() + ".jpg";
+        String imgPath = "src/main/resources/Images/Thumbnail/" + product.getId() + ".jpg";
         File f = new File(imgPath);
 
         if (f.exists() && f.isFile()){
@@ -97,7 +97,7 @@ public class ProductDetailController {
 
     // Desc loader helper
     private void loadDesc(){
-        String descPath = "/mnt/data/Projects/Pixel Plus/src/main/resources/FileDescs/" + product.getId() + ".txt";
+        String descPath = "src/main/resources/FileDescs/" + product.getId() + ".txt";
         StringBuilder desc = new StringBuilder();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(descPath))) {

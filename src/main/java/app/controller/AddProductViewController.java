@@ -103,7 +103,7 @@ public class AddProductViewController {
 
 
     public void saveImg(){
-        String name = product.getId() + getFileExtention(productImage) , dir = "/mnt/data/Projects/Pixel Plus/src/main/resources/Images/Thumbnail/";
+        String name = product.getId() + getFileExtention(productImage) , dir = "src/main/resources/Images/Thumbnail/";
 
         File directory = new File(dir);
         if (!directory.exists()) directory.mkdirs();
