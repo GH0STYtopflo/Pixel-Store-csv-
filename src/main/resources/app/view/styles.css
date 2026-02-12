@@ -1,0 +1,132 @@
+* {
+    /*Color Palette*/
+    -primary-brown: #8D6E63;        /* Warm medium brown */
+    -dark-brown: #3E2723;           /* Text & Strong Accents */
+    -light-almond: #F5F0EE;         /* App Background */
+    -surface-white: #FFFFFF;        /* Cards */
+    -surface-variant: #E7DED9;      /* Sidebar/Header Backgrounds */
+    -accent-gold: #D7CCC8;          /* Secondary interaction color */
+
+    /*Text Colors*/
+    -text-primary: #3E2723;
+    -text-secondary: #795548;
+}
+
+.root {
+    -fx-font-family: "Roboto", "Segoe UI", sans-serif;
+    -fx-background-color: -light-almond;
+}
+
+/* Header */
+.app-bar {
+    -fx-background-color: -surface-variant;
+    -fx-padding: 15 30;
+}
+
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -dark-brown;
+}
+
+/*Search Bar*/
+.search-bar {
+    -fx-background-color: -surface-white;
+    -fx-background-radius: 50;
+    -fx-padding: 0 15;
+}
+
+.search-bar:hover {
+    -fx-background-color: #DBCBC7; /* Slightly darker on hover */
+}
+
+.search-bar .text-field {
+    -fx-text-fill: -dark-brown;
+    -fx-prompt-text-fill: -text-secondary;
+    -fx-background-color: transparent;
+}
+
+/*Sidebar */
+.sidebar {
+    -fx-background-color: -surface-variant;
+    -fx-padding: 20;
+}
+
+.sidebar .label {
+    -fx-text-fill: -dark-brown;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.price-field {
+    -fx-background-color: -surface-weight;
+}
+
+.check-box .box {
+    -fx-background-color: transparent;
+    -fx-border-color: -primary-brown;
+    -fx-border-radius: 4;
+}
+.check-box:selected .mark {
+    -fx-background-color: -primary-brown;
+}
+
+/*Product Cards (Rounded like Pixel Widgets)*/
+.product-card {
+    -fx-background-color: -surface-white;
+    -fx-background-radius: 24;
+    -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.08), 8, 0, 0, 2);
+    -fx-padding: 0;
+    -fx-transition: all 750ms ease;
+}
+
+.product-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.1), 15, 0, 0, 6);
+    -fx-cursor: hand;
+}
+
+.image-container {
+    -fx-background-color: -surface-variant;
+    -fx-background-radius: 24 24 0 0;
+}
+
+.product-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-primary;
+}
+
+.product-price {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -primary-brown;
+}
+
+/*Buttons*/
+.btn-primary {
+    -fx-background-color: -dark-brown;
+    -fx-text-fill: white;
+    -fx-background-radius: 50; /* Pill Shape */
+    -fx-padding: 8 20;
+    -fx-font-weight: bold;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #5D4037;
+    -fx-cursor: hand;
+}
+
+/*Icon Buttons*/
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+.icon-button:hover {
+    -fx-background-color: rgba(141, 110, 99, 0.1);
+    -fx-background-radius: 50;
+}
+
+/*Helper class for SVG coloring via CSS*/
+.svg-icon {
+    -fx-fill: -dark-brown;
+}

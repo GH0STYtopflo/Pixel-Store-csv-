@@ -1,0 +1,97 @@
+* {
+    -bg-almond: #F5F0EE;
+    -surface-white: #FFFFFF;
+    -brown-primary: #3E2723;
+    -brown-light: #D7CCC8;
+    -text-main: #3E2723;
+    -accent-green: #2E7D32;
+}
+
+.root {
+    -fx-background-color: -bg-almond;
+    -fx-font-family: "Roboto", "Segoe UI", sans-serif;
+}
+
+.nav-bar {
+    -fx-background-color: -surface-white;
+    -fx-background-radius: 24;
+    -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.08), 15, 0, 4, 0);
+    -fx-padding: 20 10;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-main;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 16;
+    -fx-padding: 12 15;
+}
+
+.nav-button:hover {
+    -fx-background-color: #EFEBE9;
+}
+
+.nav-button:selected {
+    -fx-background-color: -brown-light;
+}
+
+.logout-button {
+    -fx-background-color: -brown-primary;
+    -fx-text-fill: -surface-white;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 16;
+    -fx-padding: 12 15;
+}
+
+.logout-button:hover {
+    -fx-background-color: -brown-light
+}
+
+.stat-card {
+    -fx-background-color: -surface-white;
+    -fx-background-radius: 24;
+    -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.05), 10, 0, 0, 4);
+    -fx-padding: 20;
+    -fx-min-width: 200;
+}
+
+.stat-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -brown-primary;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8D6E63;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-radius: 16;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: -surface-white;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #E0E0E0;
+    -fx-font-weight: bold;
+    -fx-text-fill: -brown-primary;
+}
+
+.table-row-cell {
+    -fx-background-color: -surface-white;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #F5F5F5;
+}

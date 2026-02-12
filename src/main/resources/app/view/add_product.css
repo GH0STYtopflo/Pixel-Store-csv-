@@ -1,0 +1,60 @@
+/* --- PIXEL PLUS GLOBAL THEME --- */
+.root {
+    -bg-almond: #F5F0EE;
+    -surface-white: #FFFFFF;
+    -brown-primary: #3E2723;
+    -brown-light: #D7CCC8;
+    -text-main: #3E2723;
+    -accent-green: #2E7D32;
+}
+
+/* Floating Card Container */
+.floating-card {
+    -fx-background-color: -surface-white;
+    -fx-background-radius: 32;
+    -fx-effect: dropshadow(gaussian, rgba(62,39,35,0.12), 20, 0, 0, 10);
+}
+
+/* Input Fields */
+.pixel-input {
+    -fx-background-color: -bg-almond;
+    -fx-background-radius: 12;
+    -fx-padding: 10;
+    -fx-text-fill: -text-main;
+    -fx-prompt-text-fill: #A1887F;
+}
+
+.pixel-input:focused {
+    -fx-border-color: -brown-light;
+    -fx-border-radius: 12;
+    -fx-border-width: 2;
+}
+
+/* Drag and Drop Zone */
+.upload-zone {
+    -fx-background-color: -bg-almond;
+    -fx-background-radius: 24;
+    -fx-border-color: -brown-light;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+    -fx-border-radius: 24;
+}
+
+/* Buttons */
+.btn-primary {
+    -fx-background-color: -brown-primary;
+    -fx-text-fill: -surface-white;
+    -fx-background-radius: 50;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-opacity: 0.9;
+}
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: -brown-primary;
+    -fx-cursor: hand;
+}

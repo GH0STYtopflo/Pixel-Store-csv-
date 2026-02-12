@@ -1,0 +1,76 @@
+/* --- PIXEL PLUS BRAND PALETTE --- */
+.root {
+    -bg-almond: #F5F0EE;
+    -surface-white: #FFFFFF;
+    -brown-primary: #3E2723;
+    -brown-light: #D7CCC8;
+    -text-main: #3E2723;
+    -accent-green: #2E7D32;
+}
+
+/* Floating Card Container */
+.floating-container {
+    -fx-background-color: -surface-white;
+    -fx-background-radius: 32;
+    -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.15), 25, 0, 0, 12);
+    -fx-border-color: -brown-light;
+    -fx-border-width: 0.5;
+    -fx-border-radius: 32;
+}
+
+/* Table View Styling */
+.floating-table {
+    -fx-background-color: transparent;
+    -fx-tree-table-color: transparent;
+    -fx-selection-bar: -brown-light; /* Soft tan selection */
+    -fx-selection-bar-non-focused: -bg-almond;
+}
+
+.floating-table .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.floating-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: -brown-light;
+    -fx-size: 45;
+}
+
+.floating-table .column-header .label {
+    -fx-text-fill: -brown-primary;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.floating-table .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-main;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: -bg-almond;
+}
+
+.floating-table .table-row-cell:filled:hover {
+    -fx-background-color: -bg-almond;
+}
+
+/* Scrollbar customization */
+.floating-table .scroll-bar:vertical .thumb,
+.floating-table .scroll-bar:horizontal .thumb {
+    -fx-background-color: -brown-light;
+    -fx-background-radius: 10;
+}
+
+/* Primary Button using Brown-Primary */
+.btn-admin-close {
+    -fx-background-color: -brown-primary;
+    -fx-text-fill: -surface-white;
+    -fx-background-radius: 50;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-admin-close:hover {
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.2), 10, 0, 0, 2);
+}

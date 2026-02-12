@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.UserfrontController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="80.0" spacing="20.0" style="-fx-border-color: #3E2723;" styleClass="app-bar" BorderPane.alignment="CENTER">
+            <children>
+
+                <Label styleClass="app-title" text="Pixel Plus" />
+                <Button fx:id="depoBtn" mnemonicParsing="false" onAction="#onDepoClicked" styleClass="btn-primary" text="Balance: " />
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <HBox alignment="CENTER_LEFT" layoutX="516.0" layoutY="28.0" maxHeight="-Infinity" prefHeight="45.0" prefWidth="340.0" styleClass="search-bar">
+                    <children>
+                        <SVGPath content="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.12 15.41,12.62 14.43,13.84L20.59,20L19.17,21.41L13,15.25C11.77,16.23 10.27,16.82 8.68,16.82A6.5,6.5 0 0,1 2.18,10.32C2.18,6.73 5.09,3.82 8.68,3M9.5,5A4.5,4.5 0 0,0 5,9.5A4.5,4.5 0 0,0 9.5,14A4.5,4.5 0 0,0 14,9.5A4.5,4.5 0 0,0 9.5,5Z" scaleX="0.9" scaleY="0.9" styleClass="svg-icon" />
+
+                        <TextField id="search" fx:id="searchbox" onAction="#onEnterPressed" promptText="Search phones..." HBox.hgrow="ALWAYS" />
+
+                        <Button fx:id="clearSearchBtn" mnemonicParsing="false" onAction="#handleClearSearch" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 0 10 0 0;" visible="false">
+                            <graphic>
+                                <SVGPath content="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" fill="#8D6E63" scaleX="0.8" scaleY="0.8" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+
+                <Button fx:id="checkoutBtn" mnemonicParsing="false" onAction="#handleCheckout" styleClass="btn-primary" text="Checkout">
+                    <graphic>
+                        <SVGPath content="M17,18A2,2 0 0,1 19,20A2,2 0 0,1 17,22C15.89,22 15,21.1 15,20C15,18.89 15.89,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18A2,2 0 0,1 9,20A2,2 0 0,1 7,22C5.89,22 5,21.1 5,20C5,18.89 5.89,18 7,18Z" fill="WHITE" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox prefWidth="240.0" spacing="20.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Brands" />
+                <VBox id="brands" fx:id="brands" spacing="12.0">
+                    <children>
+                        <CheckBox fx:id="googleCheck" mnemonicParsing="false" text="Google" />
+                        <CheckBox fx:id="samsungCheck" mnemonicParsing="false" text="Samsung" />
+                        <CheckBox fx:id="appleCheck" mnemonicParsing="false" text="Apple" />
+                        <CheckBox layoutX="10.0" layoutY="74.0" mnemonicParsing="false" text="Xiaomi" fx:id="xiaomiCheck" />
+                        <CheckBox fx:id="oneplusCheck" layoutX="10.0" layoutY="138.0" mnemonicParsing="false" text="OnePlus" />
+                        <CheckBox fx:id="othersCheck" layoutX="10.0" layoutY="170.0" mnemonicParsing="false" text="Other Brands" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </VBox>
+                <Separator opacity="0.6" prefWidth="200.0" style="-fx-background-color: #8D6E63;" />
+
+                <Label text="Price" />
+                <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="365.0" maxHeight="-Infinity" prefHeight="40.0" prefWidth="320.0" styleClass="search-bar">
+                    <children>
+                        <TextField id="priceLow" fx:id="lowbound" promptText="From" />
+                    </children>
+                </HBox>
+
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="40.0" prefWidth="320.0" styleClass="search-bar">
+                    <children>
+                        <TextField id="priceUp" fx:id="upbound" promptText="To" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="-10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Separator layoutX="30.0" layoutY="302.0" opacity="0.6" prefWidth="200.0" style="-fx-background-color: #8D6E63;" />
+                <Label layoutX="30.0" layoutY="293.0" text="Ram" />
+                <VBox id="ramBound" layoutX="30.0" layoutY="333.0" spacing="12.0">
+                    <children>
+                        <CheckBox fx:id="onetworam" mnemonicParsing="false" onAction="#handleOneTwo" text="1-2 GB" />
+                        <CheckBox fx:id="twoeightram" mnemonicParsing="false" onAction="#handleTwoEight" text="2-8 GB" />
+                        <CheckBox fx:id="eightplus" mnemonicParsing="false" onAction="#handleEightPlus" text="8+ GB" />
+                    </children>
+                </VBox>
+
+                <VBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Button id="applyfilter" fx:id="applyfilter" mnemonicParsing="false" onAction="#onApplyFilterClicked" styleClass="btn-primary" text="Apply Filter" />
+
+                        <Button fx:id="clearFilterBtn" mnemonicParsing="false" onAction="#handleClearFilters" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Clear All" textFill="#d32f2f">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </VBox>
+
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" BorderPane.alignment="CENTER">
+            <content>
+                <FlowPane id="phoneGallery" fx:id="phoneGallery" hgap="21.0" prefWrapLength="500.0" vgap="10.0">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
+                    </padding>
+                </FlowPane>
+            </content>
+            <VBox.margin>
+                <Insets top="-5.0" />
+            </VBox.margin>
+        </ScrollPane>
+    </center>
+</BorderPane>

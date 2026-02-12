@@ -1,0 +1,66 @@
+/* --- MATERIAL YOU AUTH THEME --- */
+* {
+    -bg-almond: #F5F0EE;
+    -card-white: #FFFFFF;
+    -brown-primary: #8D6E63;
+    -brown-dark: #3E2723;
+    -input-fill: #E7DED9;
+    -text-main: #3E2723;
+}
+
+.root {
+    -fx-font-family: "Roboto", "Segoe UI", sans-serif;
+    -fx-background-color: -bg-almond;
+}
+
+/* Central Login Card */
+.auth-card {
+    -fx-background-color: -card-white;
+    -fx-background-radius: 32; /* Large signature Material You corners */
+    -fx-effect: dropshadow(gaussian, rgba(62, 39, 35, 0.1), 20, 0, 0, 10);
+    -fx-padding: 40;
+}
+
+/* Pill-Shaped Inputs */
+.auth-input {
+    -fx-background-color: -input-fill;
+    -fx-background-radius: 50;
+    -fx-border-color: transparent;
+    -fx-padding: 12 20;
+    -fx-text-fill: -brown-dark;
+    -fx-prompt-text-fill: #8D6E63;
+    -fx-font-size: 14px;
+}
+
+.auth-input:focused {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: -brown-primary;
+    -fx-border-width: 2;
+    -fx-border-radius: 50;
+}
+
+/* Primary Action Button */
+.btn-auth-primary {
+    -fx-background-color: -brown-dark;
+    -fx-text-fill: white;
+    -fx-background-radius: 50;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-transition: 0.3s;
+}
+
+.btn-auth-primary:hover {
+    -fx-background-color: -brown-primary;
+}
+
+/* Secondary Switch Button */
+.btn-auth-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: -brown-primary;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-auth-secondary:hover {
+    -fx-underline: true;
+}

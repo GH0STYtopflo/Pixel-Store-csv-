@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: transparent;" stylesheets="@add_product.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.AddProductViewController">
+    <children>
+        <HBox spacing="40.0" styleClass="floating-card">
+            <children>
+
+                <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Add New Phone" textFill="#3E2723">
+                                    <font><Font name="System Bold" size="32.0" /></font>
+                                </Label>
+                                <Label fx:id="msgLabel" text="Pixel Store Inventory Management" textFill="#2E7D32">
+                                    <font><Font name="System Italic" size="14.0" /></font>
+                                </Label>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="8.0">
+                            <Label style="-fx-font-weight: bold;" text="Product Name" textFill="#3E2723" />
+                            <TextField fx:id="nameField" prefHeight="45.0" promptText="Enter product name" styleClass="pixel-input" />
+                        </VBox>
+
+                        <HBox spacing="15.0">
+                            <children>
+                                <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-font-weight: bold;" text="Brand" textFill="#3E2723" />
+                           <TextField fx:id="brandAcc" prefHeight="45.0" promptText="e.g. Google" styleClass="pixel-input" />
+                                </VBox>
+                                <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-font-weight: bold;" text="RAM (GB)" textFill="#3E2723" />
+                                    <TextField fx:id="ramField" prefHeight="45.0" promptText="e.g. 12" styleClass="pixel-input" />
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <HBox spacing="15.0">
+                            <children>
+                                <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-font-weight: bold;" text="Price ($)" textFill="#3E2723" />
+                                    <TextField fx:id="priceField" prefHeight="45.0" promptText="0.00" styleClass="pixel-input" />
+                                </VBox>
+                                <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-font-weight: bold;" text="Quantity" textFill="#3E2723" />
+                                    <TextField fx:id="qtyField" prefHeight="45.0" promptText="Inventory count" styleClass="pixel-input" />
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <VBox spacing="8.0" VBox.vgrow="ALWAYS">
+                            <Label style="-fx-font-weight: bold;" text="Specifications / Description" textFill="#3E2723" />
+                            <TextArea fx:id="descArea" prefHeight="120.0" promptText="Additional details..." styleClass="pixel-input" wrapText="true" />
+                        </VBox>
+                    </children>
+                </VBox>
+
+                <VBox alignment="TOP_CENTER" maxWidth="320.0" minWidth="300.0" spacing="25.0">
+                    <children>
+                        <Label text="Product image" textFill="#3E2723">
+                            <font><Font name="System Bold" size="16.0" /></font>
+                        </Label>
+
+                        <StackPane fx:id="dropZone" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="300.0" prefWidth="300.0" styleClass="upload-zone">
+                            <children>
+                                <VBox fx:id="uploadPlaceholder" alignment="CENTER" spacing="15.0">
+                                    <children>
+                                        <Label fx:id="bigAssPlusSign" text="+" textFill="#D7CCC8">
+                                            <font><Font size="64.0" /></font>
+                                        </Label>
+                                        <Label fx:id="imgAreaText" text="Drag &amp; Drop Image" textFill="#3E2723" />
+                                    </children>
+                                </VBox>
+                                <ImageView fx:id="previewImage" fitHeight="280.0" fitWidth="280.0" preserveRatio="true" visible="false" />
+                            </children>
+                        </StackPane>
+
+                        <Region VBox.vgrow="ALWAYS" />
+
+                        <VBox spacing="10.0">
+                            <Button fx:id="addBtn" maxWidth="1.7976931348623157E308" onAction="#onAddClicked" prefHeight="55.0" styleClass="btn-primary" text="ADD PRODUCT" />
+                            <Button fx:id="closeBtn" maxWidth="1.7976931348623157E308" onAction="#onCloseClicked" prefHeight="40.0" styleClass="btn-secondary" text="close" />
+                        </VBox>
+                    </children>
+                </VBox>
+
+            </children>
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+</StackPane>

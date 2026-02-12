@@ -1,0 +1,75 @@
+.product-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(62, 39, 35, 0.2), 15, 0, 0, 8);
+    -fx-transition: -fx-translate-y 0.2s ease-out;
+}
+
+.product-card:hover {
+    -fx-translate-y: -1;
+    -fx-effect: dropshadow(three-pass-box, rgba(62, 39, 35, 0.35), 20, 0, 0, 12);
+}
+
+.image-container {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20 20 0 0;
+    -fx-border-color: rgba(0,0,0,0.05);
+    -fx-border-width: 0 0 1 0;
+}
+
+.product-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 17px;
+    -fx-text-fill: #3E2723;
+}
+
+.product-desc {
+    -fx-font-size: 12px;
+    -fx-text-fill: #8D6E63;
+}
+
+.product-price {
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-fill: #3E2723;
+}
+.product-price:hover {
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-fill: #158B1B;
+}
+
+.btn-add {
+    -fx-background-color: #3E2723;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.btn-add:hover {
+    -fx-background-color: #5D4037;
+        -fx-cursor: hand;
+}
+
+.btn-details {
+    -fx-background-color: transparent;
+    -fx-border-color: #8D6E63;
+    -fx-border-radius: 10;
+    -fx-text-fill: #8D6E63;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.btn-details:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: #8D6E63;
+    -fx-border-radius: 13;
+    -fx-text-fill: #8D6E63;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.stock-msg {
+    -fx-text-fill: #D32F2F;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}

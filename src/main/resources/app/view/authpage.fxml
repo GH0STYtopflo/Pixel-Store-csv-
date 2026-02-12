@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="500.0" prefWidth="700.0" stylesheets="@auth_styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.AuthController">
+    <children>
+        <VBox fx:id="authCard" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="420.0" spacing="25.0" styleClass="auth-card">
+            <children>
+                <VBox alignment="CENTER" spacing="8.0">
+                    <children>
+                        <SVGPath content="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 1 1-8 0" fill="#8d6e63" scaleX="2.0" scaleY="2.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></SVGPath>
+                        <Label text="Pixel Store">
+                            <font>
+                                <Font name="System Bold" size="28.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="subtext" text="Login to your account" textFill="#8d6e63" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <VBox fx:id="loginBox" spacing="15.0">
+                    <children>
+                        <TextField fx:id="loginUser" promptText="Username" styleClass="auth-input" />
+                        <PasswordField fx:id="loginPass" promptText="Password" styleClass="auth-input" />
+                        <Button fx:id="signinup" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#onAuthClicked" styleClass="btn-auth-primary" text="Login" />
+                    </children>
+                </VBox>
+
+                <VBox fx:id="signupBox" managed="false" spacing="15.0" visible="false">
+                    <children>
+                        <TextField fx:id="signupName" promptText="Full Name" styleClass="auth-input" />
+                        <TextField fx:id="signupEmail" promptText="Email Address" styleClass="auth-input" />
+                        <PasswordField fx:id="signupPass" promptText="Create Password" styleClass="auth-input" />
+                        <Button maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#handleSignUp" styleClass="btn-auth-primary" text="Create Account" />
+                    </children>
+                </VBox>
+            <Label fx:id="messagetext" alignment="CENTER" prefHeight="18.0" prefWidth="353.0" textFill="#23ab2c">
+               <VBox.margin>
+                  <Insets top="-15.0" />
+               </VBox.margin>
+            </Label>
+
+                <HBox alignment="CENTER" spacing="5.0">
+                    <children>
+                        <Label fx:id="toggleHint" text="New here?" />
+                        <Button fx:id="toggleBtn" mnemonicParsing="false" onAction="#ontoggleBtnClicked" styleClass="btn-auth-secondary" text="Create an account" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>
