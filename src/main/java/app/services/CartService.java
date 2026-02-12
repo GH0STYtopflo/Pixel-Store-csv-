@@ -107,6 +107,7 @@ public class CartService {
 
     private void clearCart(int userID) {
         List<String[]> allRows = List.of();
+        ArrayList<String[]> cartItems = new ArrayList<>();
 
         try (CSVReader reader = new CSVReader(new FileReader(pathToCartsTable))) {
             allRows = reader.readAll();
@@ -114,16 +115,14 @@ public class CartService {
             e.printStackTrace();
         }
 
-        for (String[] row : allRows) {
-            if (Integer.parseInt(row[0]) == userID) allRows.remove(row);
-
-            try (CSVWriter writer = new CSVWriter(new FileWriter(pathToCartsTable))) {
-                writer.writeAll(allRows);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+        for (String[] row : allRows) if (Integer.parseInt(row[0]) == userID) cartItems.add(row);
+        allRows.removeAll(cartItems);
+        try (CSVWriter writer = new CSVWriter(new FileWriter(pathToCartsTable))) {
+            writer.writeAll(allRows);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
     public void clearCartAndReturn(int userID){
         ObservableList<Carts> items = getUserCart(userID);

@@ -101,25 +101,21 @@ public class UserService {
 
     //Withdraw
     public void withdraw(int userId, int amount) {
-        List<String[]> allRows = null;
+        List<String[]> allRows = List.of();
 
         try(CSVReader reader = new CSVReader(new FileReader(pathToUsersTable))){
-            allRows = reader.readAll();
+            allRows = reader.readAll();} catch (Exception e) {e.printStackTrace();}
 
-            for (String[] row : allRows){
-                if (row[0].equals(String.valueOf(userId))) row[3] = String.valueOf(amount - Integer.parseInt(row[3]));
+        for (String[] row : allRows){
+            if (row[0].equals(String.valueOf(userId))) {
+                row[3] = String.valueOf((Integer.parseInt(row[3]) - amount));
                 System.out.println("withdrew $" + amount);
                 break;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
         try (CSVWriter writer = new CSVWriter(new FileWriter(pathToUsersTable))) {
-            writer.writeAll(allRows);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            writer.writeAll(allRows);} catch (Exception e) {e.printStackTrace();}
     }
 
     // Update role
