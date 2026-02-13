@@ -46,7 +46,7 @@
                         <TextField fx:id="signupName" promptText="Full Name" styleClass="auth-input" />
                         <TextField fx:id="signupEmail" promptText="Email Address" styleClass="auth-input" />
                         <PasswordField fx:id="signupPass" promptText="Create Password" styleClass="auth-input" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#handleSignUp" styleClass="btn-auth-primary" text="Create Account" />
+                        <Button maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" styleClass="btn-auth-primary" text="Create Account" />
                     </children>
                 </VBox>
             <Label fx:id="messagetext" alignment="CENTER" prefHeight="18.0" prefWidth="353.0" textFill="#23ab2c">

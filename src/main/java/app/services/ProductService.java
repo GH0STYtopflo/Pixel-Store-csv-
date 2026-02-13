@@ -1,12 +1,10 @@
 package app.services;
 
-import app.db.DBConnector;
 import app.models.Products;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 import java.io.*;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,19 +72,20 @@ public class ProductService {
     //Find By Name
     public ArrayList<Products> findByName(String searchWord) {
         List<String[]> allRows;
-        ArrayList<Products> results = null;
+        ArrayList<Products> results = new ArrayList<>();
 
         try (CSVReader reader = new CSVReader(new FileReader(pathToProductsTable))){
             allRows = reader.readAll();
 
             for (String[] row : allRows){
-                if (row[1].contains(searchWord)){
+                if (row[1].toLowerCase().contains(searchWord.toLowerCase())){
                     results.add(new Products(Integer.parseInt(row[0]) , row[1] ,
                             row[2] , Integer.parseInt(row[3]) , Integer.parseInt(row[4]) ,
                             Integer.parseInt(row[5])));
                 }
             }
-            System.out.println("Found " + allRows.size() + " results for " + searchWord);
+
+            System.out.println("Found " + results.size() + " results for " + searchWord);
         } catch (Exception e) {
             e.printStackTrace();
         }

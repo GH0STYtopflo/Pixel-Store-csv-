@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.db.DBConnector;
 import app.models.Users;
 import app.services.UserService;
 import javafx.collections.FXCollections;
@@ -11,11 +10,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.util.StringConverter;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class UsersListController {
 
@@ -45,6 +39,12 @@ public class UsersListController {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("username"));
         colBalance.setCellValueFactory(new PropertyValueFactory<>("balance"));
+        roleColSetup();
+
+        usersTable.setItems(userList);
+    }
+
+    private void roleColSetup(){
         colRole.setCellValueFactory(new PropertyValueFactory<>("role"));
         colRole.setCellFactory(TextFieldTableCell.forTableColumn());
         colRole.setOnEditCommit(event -> {
@@ -56,10 +56,7 @@ public class UsersListController {
                     service.updateRole(newRole , user.getId());
                 }
             }
-
         });
-
-        usersTable.setItems(userList);
     }
 
 

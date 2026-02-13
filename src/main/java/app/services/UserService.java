@@ -1,17 +1,17 @@
 package app.services;
 
-import app.db.DBConnector;
 import app.models.Users;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
+//header: id , username , password , balance , role
+
 
     private String pathToUsersTable = "/mnt/data/Projects/Pixel-Store/tables/Users.csv";
 

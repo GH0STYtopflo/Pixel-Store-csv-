@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.db.DBConnector;
 import app.models.Products;
 import app.services.ProductService;
 import javafx.collections.FXCollections;
@@ -14,9 +13,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.io.File;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class LowBalController {
     @FXML private TableView<Products> productsTable;
@@ -48,9 +44,9 @@ public class LowBalController {
             if (event.getNewValue() == 0) {
                 productsList.remove(item);
                 service.deleteProduct(item.getId());
-                File desc = new File("/mnt/data/Projects/Pixel Plus/src/main/resources/FileDescs/"
+                File desc = new File("src/main/resources/FileDescs/"
                         + item.getId() + ".txt");
-                File image = new File("/mnt/data/Projects/Pixel Plus/src/main/resources/Images/Thumbnail/"
+                File image = new File("src/main/resources/Images/Thumbnail/"
                         + item.getId() + ".jpg");
                 desc.delete();
                 image.delete();

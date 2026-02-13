@@ -1,9 +1,6 @@
 package app.controller;
 
-import app.db.DBConnector;
-import app.models.Carts;
 import app.models.Products;
-import app.models.Users;
 import app.services.ProductService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +13,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.io.File;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class ProductsListController {
 
@@ -30,20 +24,29 @@ public class ProductsListController {
     @FXML private TableColumn<Products, Integer> colBalance;
     @FXML private TableColumn<Products, Integer> colRam;
     @FXML private TableColumn<Products, Integer> colPrice;
-
     @FXML private Button btnCloseWindow;
+
+    @FXML public void closeWindow(){parentController.closeProductsList();}
 
     private ObservableList<Products> productsList = FXCollections.observableArrayList();
     private AdminViewController parentController = null;
     ProductService service = new ProductService();
 
-    @FXML
-    public void closeWindow(){parentController.closeProductsList();}
-
     public void init(AdminViewController prntctrl){
         this.parentController = prntctrl;
 
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameColumnSetup();
+        balanceColumnSetup();
+        priceColSetup();
+        colRam.setCellValueFactory(new PropertyValueFactory<>("ram"));
+        colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+
+        productsList.addAll(service.fetchAll());
+        productsTable.setItems(productsList);
+    }
+
+    private void nameColumnSetup(){
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colName.setCellFactory(TextFieldTableCell.forTableColumn());
         colName.setOnEditCommit(event -> {
@@ -52,6 +55,9 @@ public class ProductsListController {
             item.setName(event.getNewValue());
             service.updateName(event.getNewValue() , item.getId());
         });
+    }
+
+    private void balanceColumnSetup(){
         colBalance.setCellValueFactory(new PropertyValueFactory<>("balance"));
         colBalance.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         colBalance.setOnEditCommit(event -> {
@@ -59,9 +65,9 @@ public class ProductsListController {
             if (event.getNewValue() == 0) {
                 productsList.remove(item);
                 service.deleteProduct(item.getId());
-                File desc = new File("/mnt/data/Projects/Pixel Plus/src/main/resources/FileDescs/"
+                File desc = new File("src/main/resources/FileDescs/"
                         + item.getId() + ".txt");
-                File image = new File("/mnt/data/Projects/Pixel Plus/src/main/resources/Images/Thumbnail/"
+                File image = new File("src/main/resources/Images/Thumbnail/"
                         + item.getId() + ".jpg");
                 desc.delete();
                 image.delete();
@@ -72,6 +78,9 @@ public class ProductsListController {
                 service.updateBalance(event.getNewValue(), item.getId());
             }
         });
+    }
+
+    private void priceColSetup(){
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         colPrice.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         colPrice.setOnEditCommit(event -> {
@@ -79,10 +88,5 @@ public class ProductsListController {
             if (0 < event.getNewValue()) item.setPrice(event.getNewValue());
             service.updatePrice(event.getNewValue() , item.getId());
         });
-        colRam.setCellValueFactory(new PropertyValueFactory<>("ram"));
-        colBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-
-        productsList.addAll(service.fetchAll());
-        productsTable.setItems(productsList);
     }
 }

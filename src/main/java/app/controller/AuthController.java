@@ -36,30 +36,17 @@ public class AuthController {
     Stage adminStage;
 
 
-    public void ontoggleBtnClicked(){modeChanger(signinup.getText());}
-    public void onAuthClicked(){auth(signinup.getText());}
-    public void handleSignUp(){}
+    @FXML public void ontoggleBtnClicked(){swichMode(signinup.getText());}
+    @FXML public void onAuthClicked(){auth(signinup.getText());}
 
 
-    public void modeChanger(String mode){
-        if (mode.equals("Login")) {
-            toggleBtn.setText("Login");
-            toggleHint.setText("Already a member?");
-            subtext.setText("Sign up lil nih it's free");
-            signinup.setText("Sign Up");
-        }
-        else {
-            toggleBtn.setText("New here?");
-            toggleHint.setText("Create an account");
-            subtext.setText("Login to your account");
-            signinup.setText("Login");
-        }
+    public void swichMode(String mode){
+        if (mode.equals("Login")) switchToSignup();
+        else switchToLogin();
     }
 
     public void auth(String mode){
-        if (mode.equals("Login")){
-            login();
-        }
+        if (mode.equals("Login")) login();
         else signup();
     }
     public void login(){
@@ -82,34 +69,10 @@ public class AuthController {
             messagetext.setText("Login successful!");
             Users activeSession = service.findUserByUsername(loginUser.getText());
             if (activeSession.getRole().equals("customer")) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/view/usrfront.fxml"));
-                    Scene scene = new Scene(loader.load());
-                    UserfrontController uiController = loader.getController();
-                    uiController.init(activeSession);
-                    Stage stage = new Stage();
-                    stage.setMaximized(true);
-                    stage.setScene(scene);
-                    stage.setTitle("Pixel Store");
-                    stage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                openFrontPage(activeSession);
             }
             else if (activeSession.getRole().equals("admin") || activeSession.getRole().equals("super")) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/view/admin_view.fxml"));
-                    Scene scene = new Scene(loader.load());
-                    AdminViewController uiController = loader.getController();
-                    uiController.init(activeSession , this);
-                    adminStage = new Stage();
-                    adminStage.setMaximized(true);
-                    adminStage.setScene(scene);
-                    adminStage.setTitle("Pixel Store");
-                    adminStage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                openAdminPanel(activeSession);
             }
 
         }
@@ -135,10 +98,7 @@ public class AuthController {
             messagetext.setText("Username is not available.");
         }
         else if (existingUser == null) {
-            service.registerUser(new Users(IDGen.gen() , loginUser.getText() , Misc.encrypt(loginPass.getText().trim()) , "customer" , 0));
-            messagetext.setTextFill(Color.GREEN);
-            messagetext.setText("Signed up successfully!");
-            modeChanger("Sign Up");
+            register();
         }
         else {
             messagetext.setTextFill(Color.RED);
@@ -159,7 +119,59 @@ public class AuthController {
                 !(password.toLowerCase().equals(password))) && !(password.length() < 6)) status = true;
 
         return status;
+    }
 
+    private void register(){
+        service.registerUser(new Users(IDGen.gen() , loginUser.getText() , Misc.encrypt(loginPass.getText().trim()) , "customer" , 0));
+        messagetext.setTextFill(Color.GREEN);
+        messagetext.setText("Signed up successfully!");
+        swichMode("Sign Up");
+    }
+
+    private void switchToSignup(){
+        toggleBtn.setText("Login");
+        toggleHint.setText("Already a member?");
+        subtext.setText("Sign up. it's free!");
+        signinup.setText("Sign Up");
+    }
+
+    private void switchToLogin(){
+        toggleBtn.setText("New here?");
+        toggleHint.setText("Create an account");
+        subtext.setText("Login to your account");
+        signinup.setText("Login");
+    }
+
+    private void openFrontPage(Users activeSession){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/view/usrfront.fxml"));
+            Scene scene = new Scene(loader.load());
+            UserfrontController uiController = loader.getController();
+            uiController.init(activeSession);
+            Stage stage = new Stage();
+            stage.setMaximized(true);
+            stage.setScene(scene);
+            stage.setTitle("Pixel Store");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openAdminPanel(Users activeSession){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/view/admin_view.fxml"));
+            Scene scene = new Scene(loader.load());
+            AdminViewController uiController = loader.getController();
+            uiController.init(activeSession , this);
+            adminStage = new Stage();
+            adminStage.setMaximized(true);
+            adminStage.setScene(scene);
+            adminStage.setTitle("Pixel Store");
+            adminStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

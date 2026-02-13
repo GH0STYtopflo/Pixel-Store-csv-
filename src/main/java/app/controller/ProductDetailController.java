@@ -63,7 +63,7 @@ public class ProductDetailController {
         product.setBalance(product.getBalance() - 1);
         cartService.addToCart(activeSession.getId() , product);
 
-        changeButton();
+        if (product.getBalance() != 0) changeButton();
         if (product.getBalance() == 0) {
             addToCartBtn.setDisable(true);
             addToCartBtn.setText("Out Of Stock");
@@ -102,11 +102,10 @@ public class ProductDetailController {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(descPath))) {
             String line;
+            line = reader.readLine();
+            storageLabel.setText(line.substring(0 , line.indexOf("|")).trim());
+
             while ((line = reader.readLine()) != null){
-                if (line.contains("GB")) {
-                    storageLabel.setText(line.substring(0 , line.indexOf("|")).trim());
-                    continue;
-                }
                 desc.append(line + "\n");
             }
         } catch (IOException e) {
@@ -122,7 +121,7 @@ public class ProductDetailController {
 
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> {
-            addToCartBtn.setText("Add");
+            addToCartBtn.setText("Add To Cart");
             addToCartBtn.setStyle("");
         });
         pause.play();

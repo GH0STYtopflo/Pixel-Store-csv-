@@ -10,6 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
+            DatabaseInit.init();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/view/authpage.fxml"));
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);

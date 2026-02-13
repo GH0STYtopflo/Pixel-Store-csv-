@@ -1,107 +1,96 @@
 package app.db;
 
-import app.services.Misc;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class DatabaseInit {
+    private static String pathToUsersTable = "tables/Carts.csv";
+    private static String pathToProductsTable = "tables/Products.csv";
+    private static String pathToCartsTable = "tables/Carts.csv";
+    private static String pathToTransactionsTable = "tables/Transactions.csv";
 
-    public static void init() {
-        String sql = """
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY,
-                username TEXT UNIQUE NOT NULL,
-                password TEXT NOT NULL,
-                role TEXT NOT NULL,
-                balance INTEGER DEFAULT 0                            
-            );
-        """;
 
-        try (Connection conn = DBConnector.getConnection();
-             Statement stmt = conn.createStatement()) {
 
-            stmt.execute(sql);
-            System.out.println("Users table created or already exists");
 
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static void init(){
+        usersTableSetup();
+        productsTableSetup();
+        cartsTableSetup();
+        transactionsTableSetup();
+    }
+
+    private static void usersTableSetup(){
+        File users = new File(pathToUsersTable);
+
+        if(!users.exists()){
+            try {
+                if (users.createNewFile()) System.out.println("Table created successfully");
+            } catch (IOException e) {
+                System.out.println("Something went wrong");
+            }
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathToUsersTable))) {
+                writer.write("id,username,password,balance,role");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else System.out.println("Users table already exists");
+    }
 
-        sql = "INSERT INTO users (id , username, password, role, balance) VALUES (0, 'GH0STYtopflo', ? , 'super', 1000000)";
-        try (Connection conn = DBConnector.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1 , Misc.encrypt("nahfr"));
+    private static void productsTableSetup(){
+        File users = new File(pathToProductsTable);
 
-            stmt.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(!users.exists()){
+            try {
+                if (users.createNewFile()) System.out.println("Table created successfully");
+            } catch (IOException e) {
+                System.out.println("Something went wrong");
+            }
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathToProductsTable))) {
+                writer.write("id,name,brand,price,ram,balance");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else System.out.println("Products table already exists");
+    }
 
-        sql = """
-            CREATE TABLE IF NOT EXISTS products (
-                id INTEGER PRIMARY KEY,
-                name TEXT NOT NULL,
-                brand TEXT NOT NULL,
-                price INTEGER NOT NULL,
-                ram INTEGER NOT NULL,
-                balance INTEGER DEFAULT 0                            
-            );
-        """;
+    private static void cartsTableSetup(){
+        File users = new File(pathToCartsTable);
 
-        try (Connection conn = DBConnector.getConnection();
-             Statement stmt = conn.createStatement()) {
-
-            stmt.execute(sql);
-            System.out.println("Products table created or already exists");
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(!users.exists()){
+            try {
+                if (users.createNewFile()) System.out.println("Carts created successfully");
+            } catch (IOException e) {
+                System.out.println("Something went wrong");
+            }
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathToCartsTable))) {
+                writer.write("cart_id,product_id,name,price,quantity");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else System.out.println("Carts table already exists");
+    }
 
-        sql = """
-            CREATE TABLE IF NOT EXISTS transactions (
-                number INTEGER PRIMARY KEY,
-                total INTEGER NOT NULL,
-                customer INTEGER NOT NULL,
-                date TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP                            
-            );
-        """;
+    private static void transactionsTableSetup(){
+        File users = new File(pathToTransactionsTable);
 
-        try (Connection conn = DBConnector.getConnection();
-             Statement stmt = conn.createStatement()) {
-
-            stmt.execute(sql);
-            System.out.println("transactions table created or already exists");
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(!users.exists()){
+            try {
+                if (users.createNewFile()) System.out.println("Table created successfully");
+            } catch (IOException e) {
+                System.out.println("Something went wrong");
+            }
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathToTransactionsTable))) {
+                writer.write("num,total,customer_id,date");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
-
-        //important! cart id is user id
-        sql = """
-            CREATE TABLE IF NOT EXISTS carts (
-                cart_id INTEGER PRIMARY_KEY,
-                product_id INTEGER NOT NULL,
-                name TEXT NOT NULL,
-                price INTEGER NOT NULL,
-                quantity INTEGER NOT NULL CHECK (quantity > 0),
-                
-                UNIQUE (product_id)     
-            );
-        """;
-
-        try (Connection conn = DBConnector.getConnection();
-             Statement stmt = conn.createStatement()) {
-
-            stmt.execute(sql);
-            System.out.println("carts table created or already exists");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        else System.out.println("Transactions table already exists");
     }
 }

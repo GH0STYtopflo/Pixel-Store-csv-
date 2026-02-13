@@ -1,6 +1,5 @@
 package app.services;
 
-import app.db.DBConnector;
 import app.models.Transactions;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
@@ -9,10 +8,6 @@ import javafx.collections.ObservableList;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 

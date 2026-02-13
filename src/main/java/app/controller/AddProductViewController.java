@@ -36,6 +36,7 @@ public class AddProductViewController {
     @FXML private StackPane dropZone;
     @FXML private VBox uploadPlaceholder;
 
+
     private AdminViewController parentController;
     private File productImage;
     private Products product;
@@ -49,26 +50,10 @@ public class AddProductViewController {
     @FXML public void onCloseClicked(){close();}
 
     @FXML public void handleDragOver(DragEvent event) {
-        if (event.getDragboard().hasFiles()) {
-            event.acceptTransferModes(TransferMode.COPY);
-
-            dropZone.setStyle("-fx-background-color: #EFEBE9; " +
-                    "-fx-border-color: #3E2723; " +
-                    "-fx-border-style: dashed; " +
-                    "-fx-border-width: 3; " +
-                    "-fx-background-radius: 24; " +
-                    "-fx-border-radius: 24;");
-        }
-        else {
-            dropZone.setStyle("-fx-background-color: #EFEBE9; " +
-                    "-fx-border-color: #FF0000; " +
-                    "-fx-border-style: dashed; " +
-                    "-fx-border-width: 3; " +
-                    "-fx-background-radius: 24; " +
-                    "-fx-border-radius: 24;");
-        }
+        changeStyle(event);
         event.consume();
     }
+
 
     @FXML public void handleDragDropped(DragEvent event) {
         Dragboard db = event.getDragboard();
@@ -134,6 +119,26 @@ public class AddProductViewController {
         parentController.closeAddProduct();
     }
 
+    private void changeStyle(DragEvent event){
+        if (event.getDragboard().hasFiles()) {
+            event.acceptTransferModes(TransferMode.COPY);
+
+            dropZone.setStyle("-fx-background-color: #EFEBE9; " +
+                    "-fx-border-color: #3E2723; " +
+                    "-fx-border-style: dashed; " +
+                    "-fx-border-width: 3; " +
+                    "-fx-background-radius: 24; " +
+                    "-fx-border-radius: 24;");
+        }
+        else {
+            dropZone.setStyle("-fx-background-color: #EFEBE9; " +
+                    "-fx-border-color: #FF0000; " +
+                    "-fx-border-style: dashed; " +
+                    "-fx-border-width: 3; " +
+                    "-fx-background-radius: 24; " +
+                    "-fx-border-radius: 24;");
+        }
+    }
 
     //Helper
     private String getFileExtention(File file){

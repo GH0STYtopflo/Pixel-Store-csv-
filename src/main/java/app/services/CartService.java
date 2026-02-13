@@ -1,9 +1,7 @@
 package app.services;
 
-import app.db.DBConnector;
 import app.models.Carts;
 import app.models.Products;
-import app.models.Users;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvException;
@@ -13,7 +11,6 @@ import javafx.collections.ObservableList;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -163,7 +160,6 @@ public class CartService {
         try (CSVReader reader = new CSVReader(new FileReader(pathToTransactionsTable))){
             allRows = reader.readAll();
             for (String[] row : allRows) num++;
-            num++;
         }
         catch (IOException | CsvException e){
             e.printStackTrace();

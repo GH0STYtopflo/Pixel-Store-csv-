@@ -133,10 +133,11 @@ public class UserfrontController {
 
     //Search box
     public void search(){
-        ArrayList<Products> results;
+        ArrayList<Products> results = new ArrayList<>();
         String searchText = searchbox.getText();
-        if (isNumeric(searchText)) results = service.findByID(Integer.parseInt(searchText));
-        else results = service.findByName(searchText.trim());
+        if (isNumeric(searchText)) results.addAll(service.findByID(Integer.parseInt(searchText)));
+        else results.addAll(service.findByName(searchText.trim()));
+
 
         if (!results.isEmpty()) {
             cardsLoader(results);
