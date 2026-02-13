@@ -77,9 +77,9 @@ public class CartService {
     }
 
     public void makePurchase(ObservableList<Carts> items){
-        int userID = items.get(0).getCartID() , total = 1;
+        int userID = items.get(0).getCartID() , total = 0;
 
-        for (Carts item : items) total *= item.getPrice() * item.getQuantity();
+        for (Carts item : items) total += item.getPrice() * item.getQuantity();
 
         clearCart(userID);
         System.out.println("purchase made");

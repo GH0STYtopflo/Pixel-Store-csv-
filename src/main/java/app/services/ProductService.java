@@ -284,5 +284,18 @@ public class ProductService {
         return lowBal;
     }
 
+    public boolean idIsUnique(int ID){
+        List<String[]> allRows = List.of();
+        try(CSVReader reader = new CSVReader(new FileReader(pathToProductsTable))) {allRows = reader.readAll();}
+        catch (Exception e) {e.printStackTrace();}
+        boolean isUnique = true;
+
+        for (String[] row : allRows) {
+            if (row[0].equals(String.valueOf(ID))) isUnique = false;
+        }
+
+        return isUnique;
+    }
+
 
 }

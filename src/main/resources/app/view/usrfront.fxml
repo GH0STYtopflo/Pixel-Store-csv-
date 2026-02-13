@@ -15,18 +15,18 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.UserfrontController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="1200.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.UserfrontController">
 
     <top>
         <HBox alignment="CENTER_LEFT" prefHeight="80.0" spacing="20.0" style="-fx-border-color: #3E2723;" styleClass="app-bar" BorderPane.alignment="CENTER">
             <children>
 
-                <Label styleClass="app-title" text="Pixel Plus" />
+                <Label styleClass="app-title" text="Pixel Store" />
                 <Button fx:id="depoBtn" mnemonicParsing="false" onAction="#onDepoClicked" styleClass="btn-primary" text="Balance: " />
 
                 <Region HBox.hgrow="ALWAYS" />
 
-                <HBox alignment="CENTER_LEFT" layoutX="516.0" layoutY="28.0" maxHeight="-Infinity" prefHeight="45.0" prefWidth="340.0" styleClass="search-bar">
+                <HBox alignment="CENTER_LEFT" layoutX="516.0" layoutY="28.0" maxHeight="-Infinity" prefHeight="45.0" prefWidth="360.0" styleClass="search-bar">
                     <children>
                         <SVGPath content="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.12 15.41,12.62 14.43,13.84L20.59,20L19.17,21.41L13,15.25C11.77,16.23 10.27,16.82 8.68,16.82A6.5,6.5 0 0,1 2.18,10.32C2.18,6.73 5.09,3.82 8.68,3M9.5,5A4.5,4.5 0 0,0 5,9.5A4.5,4.5 0 0,0 9.5,14A4.5,4.5 0 0,0 14,9.5A4.5,4.5 0 0,0 9.5,5Z" scaleX="0.9" scaleY="0.9" styleClass="svg-icon" />
 
@@ -60,7 +60,7 @@
                         <CheckBox fx:id="appleCheck" mnemonicParsing="false" text="Apple" />
                         <CheckBox layoutX="10.0" layoutY="74.0" mnemonicParsing="false" text="Xiaomi" fx:id="xiaomiCheck" />
                         <CheckBox fx:id="oneplusCheck" layoutX="10.0" layoutY="138.0" mnemonicParsing="false" text="OnePlus" />
-                        <CheckBox fx:id="othersCheck" layoutX="10.0" layoutY="170.0" mnemonicParsing="false" text="Other Brands" />
+                        <CheckBox fx:id="othersCheck" layoutX="10.0" layoutY="170.0" mnemonicParsing="false" text="Others" />
                     </children>
                     <VBox.margin>
                         <Insets />

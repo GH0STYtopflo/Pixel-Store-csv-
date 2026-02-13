@@ -20,8 +20,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class CheckoutController {
     @FXML private TableView<Carts> cartTable;
@@ -108,7 +106,7 @@ public class CheckoutController {
             cartService.makePurchase(cart);
             msgLabel.setTextFill(Color.GREEN);
             msgLabel.setText("Purchase made. Thanks for choosing us!");
-            parentController.updateBalance(String.valueOf(activeSession.getBalance() - total));
+            parentController.updateBalance(Misc.separator(String.valueOf(activeSession.getBalance() - total)));
             userService.withdraw(activeSession.getId() , total);
             activeSession.setBalance(activeSession.getBalance() - total);
             parentController.init(activeSession);

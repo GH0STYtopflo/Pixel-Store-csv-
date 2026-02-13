@@ -1,7 +1,5 @@
 package app.services;
 
-import java.util.*;
-
 public class Misc {
     // Number string formatter
     public static String separator(String number) {

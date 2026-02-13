@@ -12,7 +12,7 @@
 
 <StackPane alignment="CENTER" stylesheets="@card_style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.PhoneCardController">
    <children>
-      <VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="250.0" styleClass="product-card">
+      <VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="240.0" styleClass="product-card">
          <children>
             <VBox fx:id="imageBox" alignment="CENTER" prefHeight="180.0" prefWidth="250.0" styleClass="image-container">
                <children>
@@ -68,6 +68,9 @@
                </children>
             </VBox>
          </children>
+         <StackPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </StackPane.margin>
       </VBox>
    </children>
 </StackPane>

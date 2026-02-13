@@ -4,7 +4,10 @@ import app.models.Products;
 import app.services.IDGen;
 import app.services.ProductService;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
@@ -106,13 +109,18 @@ public class AddProductViewController {
 
 
     public void insertIntoDB(){
-        product = new Products(IDGen.gen() , nameField.getText() , brandAcc.getText().toLowerCase() ,
-                Integer.parseInt(priceField.getText()) , Integer.parseInt(ramField.getText()) ,
+        int ID = IDGen.gen();
+
+        while (!productService.idIsUnique(ID)) {
+            ID = IDGen.gen();
+        }
+        product = new Products(ID, nameField.getText(), brandAcc.getText().toLowerCase(),
+                Integer.parseInt(priceField.getText()), Integer.parseInt(ramField.getText()),
                 Integer.parseInt(qtyField.getText()));
-        productService.registerProduct(product , descArea.getText());
+
+        productService.registerProduct(product, descArea.getText());
         saveImg();
         close();
-
     }
 
     private void close(){

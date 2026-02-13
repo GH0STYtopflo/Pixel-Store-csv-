@@ -14,7 +14,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class ProductDetailController {
 
@@ -91,7 +94,6 @@ public class ProductDetailController {
         if (f.exists() && f.isFile()){
             Image image = new Image("file:" + imgPath);
             productImage.setImage(image);
-            System.out.println("image exists");
         }
     }
 
