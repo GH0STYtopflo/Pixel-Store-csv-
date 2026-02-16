@@ -122,7 +122,12 @@ public class AuthController {
     }
 
     private void register(){
-        service.registerUser(new Users(IDGen.gen() , loginUser.getText() , Misc.encrypt(loginPass.getText().trim()) , "customer" , 0));
+        int ID = IDGen.gen();
+        while (!service.idIsUnique(ID)) {
+            ID = IDGen.gen();
+        }
+
+        service.registerUser(new Users(ID , loginUser.getText() , Misc.encrypt(loginPass.getText().trim()) , "customer" , 0));
         messagetext.setTextFill(Color.GREEN);
         messagetext.setText("Signed up successfully!");
         swichMode("Sign Up");

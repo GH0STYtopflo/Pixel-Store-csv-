@@ -159,4 +159,18 @@ public class UserService {
         }
         return results;
     }
+
+    // check if the lame ID generator has generated a unique id
+    public boolean idIsUnique(int ID){
+        List<String[]> allRows = List.of();
+        try(CSVReader reader = new CSVReader(new FileReader(pathToUsersTable))) {allRows = reader.readAll();}
+        catch (Exception e) {e.printStackTrace();}
+        boolean isUnique = true;
+
+        for (String[] row : allRows) {
+            if (row[0].equals(String.valueOf(ID))) isUnique = false;
+        }
+
+        return isUnique;
+    }
 }

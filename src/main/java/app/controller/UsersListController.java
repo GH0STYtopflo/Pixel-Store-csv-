@@ -51,7 +51,11 @@ public class UsersListController {
             Users user = event.getRowValue();
             String newRole = event.getNewValue().toLowerCase();
             if (activeSession.getRole().equals("super")){
-                if (newRole.equals("admin") || newRole.equals("super") || newRole.equals("customer")) {
+                if (newRole.equals("delete")) {
+                    service.deleteUser(user.getId());
+                    userList.remove(user);
+                }
+                else if (newRole.equals("admin") || newRole.equals("super") || newRole.equals("customer")) {
                     user.setRole(newRole);
                     service.updateRole(newRole , user.getId());
                 }
